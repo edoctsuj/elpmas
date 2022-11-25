@@ -1,7 +1,7 @@
 {
     "private": true,
     "scripts": {
-        "dev": "vite",
+        "dev": "vite --host --port 8090",
         "build": "vite build"
     },
     "devDependencies": {
