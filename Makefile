@@ -8,13 +8,11 @@ init:
 	docker-compose exec $(PHP_CONTAINER) bash -c "php artisan key:generate"
 	docker-compose exec $(PHP_CONTAINER) bash -c "php artisan migrate --seed"
 	docker-compose exec $(NODE_CONTAINER) bash -c "npm i"
-	make dev
-	start http://localhost:8000
-	start http://localhost:8090
+	make utility_1
 
 up:
 	docker-compose up -d
-	make dev
+	make utility_1
 
 dev:
 	docker-compose exec $(NODE_CONTAINER) bash -c "npm run dev"
@@ -27,3 +25,7 @@ php:
 
 node:
 	docker-compose exec $(NODE_CONTAINER) bash
+
+utility_1:
+	start "http://localhost:8000"
+	make dev
